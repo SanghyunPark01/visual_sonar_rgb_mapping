@@ -1,0 +1,40 @@
+topic:
+  sonar: "/sonar_seaking_ros"
+  odom: "/odometry"
+  image: "/camera/image_raw"
+  max_queue_size: 10000
+
+calibration:
+  # extrinsic - T_{body}_{sonar}: sonar to body
+  T_b_s: [ 0.0,  0.0, -1.0,  0.55,
+           0.0, -1.0,  0.0,   0.0,
+          -1.0,  0.0,  0.0, -0.15,
+           0.0,  0.0,  0.0,   1.0]
+  # extrinsic - T_{rviz}_{world}: underwater world to rviz
+  T_rviz_w: [ 1.0,  0.0,  0.0,  0.0,
+              0.0, -1.0,  0.0,  0.0,
+              0.0,  0.0, -1.0,  0.0,
+              0.0,  0.0,  0.0,  1.0]
+  # extrinsic - T_{body}_{camera}: camera to body
+  T_b_c: [ 0.0, -1.0,  0.0,  0.26,
+           1.0,  0.0,  0.0,   0.0,
+           0.0,  0.0,  1.0, -0.02,
+           0.0,  0.0,  0.0,   1.0]
+  # camera intrinsic
+  camera_intrinsic: [405.6384738851233,              0.0, 189.9054317917407, 
+                                   0.0, 405.588335378204, 139.9149578253755,
+                                   0.0,              0.0,               1.0]
+  dist_coeffs: [-0.3670656233416921, 0.203001968694465, 0.003336917744124004, -0.000487426354679637, 0.0] # k1, k2, p1, p2, k3
+
+maping:
+  sonar_angle_min: 120 # degree
+  sonar_angle_max: 240 # degree
+  min_intensity_threshold: 0
+
+output:
+  publish: true
+  save_map: true
+  vis_image: true
+
+debug:
+  log: true

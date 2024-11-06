@@ -1,0 +1,5 @@
+<launch>
+    <rosparam command="load" file="$(find visual_sonar_rgb_mapping)/config/config.yaml" />
+    <node pkg="visual_sonar_rgb_mapping" type="mapping" name="mapping" output="screen"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find visual_sonar_rgb_mapping)/rviz/visual_sonar_rgb_mapping.rviz" output="screen" />
+</launch>
