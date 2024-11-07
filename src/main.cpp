@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     std::thread thBuildMap(&MapDrawer::buildMap, &SonarMapper);
     std::thread thDebugging(&MapDrawer::debugging, &SonarMapper);
 
-    ros::AsyncSpinner spinner(2);
+    ros::AsyncSpinner spinner(3);
     spinner.start();
     // ros::spin();
 
