@@ -13,6 +13,7 @@ void Frame::processImage(void)
 
         // Histogram Equalization
     cv::Mat img_ycrcb;
+    // cv::imshow("before", _micRawImg);
     cv::cvtColor(_micRawImg, img_ycrcb, cv::COLOR_BGR2YCrCb);
     std::vector<cv::Mat> channels;
     cv::split(img_ycrcb, channels); 
@@ -24,6 +25,7 @@ void Frame::processImage(void)
     img_ycrcb.release();
 
     _micProcessedImg = FilteredImg.clone();
+    // cv::imshow("after", _micProcessedImg);
 }
 void Frame::release(void)
 {
